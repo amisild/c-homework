@@ -11,14 +11,15 @@ double palkade_massiiv() {
                 cout << "Pärast palgatõusu on su palk " << salaries[i] * 1.05 << " eurot." << endl;
         }
     }
+    return 0;
 }
 
-//palgatõusu arvutamine user inputi puhul
-double salary;
-double raise = salary * 1.05; //palgatõus
-
-double raise_user_input() {
-    if (salary < 1000) {
+void raise_user_input() {
+    double salary;
+    cout << "Mis on su palk? " << endl;  
+    cin >> salary;
+    double raise = salary * 1.05; //palgatõus
+    if (salary < 1000) {        
         cout << "Sinu uueks palgaks on " << raise << " eurot." << endl;
     } else {
         cout << "Selle palgaga palgatõusu ei saa." << endl;
@@ -29,9 +30,5 @@ int main()
 {
     palkade_massiiv();
 
-    //palgatõus user inputiga
-    cout << "Mis on su palk? " << endl;  
-    cin >> salary;
-    raise_user_input();
-    
+    raise_user_input();    
 }
