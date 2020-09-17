@@ -12,6 +12,7 @@ int checking_temperature() {
     } else {
         cout << "Warm!" << endl;
     }
+    return 0;
 }
 
 int main()
