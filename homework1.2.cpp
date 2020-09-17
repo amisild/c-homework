@@ -18,9 +18,9 @@ int main()
     cout << "Mis on su palk? " << endl;
     double palk;   
     cin >> palk;
+    double raise = palk * 1.05; //palgatõus
 
     if (palk < 1000) {
-        double raise = palk * 1.05; //palgatõus
         cout << "Sinu uueks palgaks on " << raise << " eurot." << endl;
     } else {
         cout << "Selle palgaga palgatõusu ei saa." << endl;
