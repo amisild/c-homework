@@ -13,7 +13,6 @@ double ringipindala;
 double ringiumbermoot;
 
 int input() {
-    int r;
     cout << "Sisesta ringi raadius: " << endl;
     cin >> r;
     cout << "Sa valisid raadiuseks " << r << "." << endl;
