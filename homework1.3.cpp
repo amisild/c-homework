@@ -2,12 +2,9 @@
 
 using namespace std;
 
-int main()
-{
-    cout << "Sisesta temperatuur (täisarvuna): " << endl;
-    int temp;
-    cin >> temp;
+int temp;
 
+int checking_temperature() {
     if (temp > 25) {
         cout << "Hot!" << endl;
     } else if (temp < 10) {
@@ -15,5 +12,12 @@ int main()
     } else {
         cout << "Warm!" << endl;
     }
+}
 
+int main()
+{
+    cout << "Sisesta temperatuur (täisarvuna): " << endl;
+    cin >> temp;
+
+    checking_temperature();
 }
