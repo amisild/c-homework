@@ -7,7 +7,6 @@ string nimi;
 int tulemus[6];
 int i, vahe;
 int first_max = 0;
-int second_max = 0;
 int n = sizeof(tulemus) / sizeof(tulemus[0]);
 
 int input (int n) {
