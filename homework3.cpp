@@ -86,13 +86,13 @@ int main() {
 
             size_t n = sizeof(temps)/sizeof(temps[0]);
 
-            for (int i = n - 1; i >= 0; i--) { //ei tööta for some reasons
+            for (int i = n - 1; i >= 0; i--) {
                 cout << "Temperatuuride massiiv: " << endl;
                 cout << temps[i];
             }
 
             //leian maksimumi
-            for (i = 1; i < n; i++) { //ei tööta, kuna array ei tööta
+            for (i = 1; i < n; i++) {
                 if(temps[0] < temps[i]) {
                     temps[0] = temps[i];
                 }
@@ -102,18 +102,6 @@ int main() {
 
             cout << "-------------------------------" << endl;
 
-
-
-
-            //tempOne = line.substr(space + 1, newline);
-            //cout << "Temps i hope >>>> " << tempOne << endl;
-
-
-
-            //linn = line.substr(0, space);
-            //cout << "Linn >>> " << linn << '\n';
-            //temperatuurid = temperatuurid.substr(space + 1, line.size());
-            //cout << "Temperatuur >>> " << temperatuurid << '\n';
 
 
         }
