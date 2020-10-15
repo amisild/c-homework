@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <iterator>
 
 using namespace std;
 
@@ -9,106 +10,91 @@ int main() {
     ifstream file(temperatuuridefile);
 
     string line;
-    string a;
-    float tempEraldi;
-    string tempLine;
-    string everyElement;
-    string tempOne;
-    string tempTwo;
-    string tempThree;
-    string tempFour;
-    string tempFive;
-    string temperatuuriderida;
-    string tempspace;
+    string tempOne, tempTwo, tempThree, tempFour, tempFive;
+    string temperatuurideRida;
+    string tempSpace;
     int temps[4];
-    int tempOneInt;
-    int tempTwoInt;
-    int tempThreeInt;
-    int tempFourInt;
-    int tempFiveInt;
+    int tempOneInt, tempTwoInt, tempThreeInt, tempFourInt, tempFiveInt;
     int n;
-
-
-    //old
-    string content;
+    int maxTemp, minTemp;
     string linn;
-    string temperatuurid;
-    string newline;
-    int delimiter;
+    string newLine;
 
 
     while (file.peek() != EOF) {
         getline(file, line);
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 1; i) {
             cout << line << '\n';
 
             size_t space = line.find(";");
-            size_t newline = line.find('\n');
+            size_t newLine = line.find('\n');
 
             linn = line.substr(0, space);
-            cout << "Linna nimi >>>> " << linn << endl;
+            cout << "Linna nimi >>> " << linn << endl;
 
-
-
-            temperatuuriderida = line.substr(space + 1, newline);
-            cout << "Full line of temperatures >>>> " << temperatuuriderida << endl;
+            temperatuurideRida = line.substr(space + 1, newLine);
+            cout << "Full line of temperatures >>> " << temperatuurideRida << endl;
            
             //esimene temp
-            size_t tempspace = temperatuuriderida.find(";");
-            tempOne = temperatuuriderida.substr(0, tempspace);
+            size_t tempSpace = temperatuurideRida.find(";");
+            tempOne = temperatuurideRida.substr(0, tempSpace);
             cout << "Esimene temperatuur >>> " << tempOne << endl;
             int tempOneInt = std::stoi (tempOne);
-            tempOneInt >> temps[i];
+            temps[0] = tempOneInt;
 
             //teine temp
-            tempTwo = temperatuuriderida.substr(tempspace + 1, tempspace);
+            tempTwo = temperatuurideRida.substr(tempSpace + 1, tempSpace);
             cout << "Teine temperatuur >>> " << tempTwo << endl;
             int tempTwoInt = std::stoi (tempTwo);
-            tempTwoInt >> temps[i];
+            temps[1] = tempTwoInt;
 
             //kolmas temp
-            tempThree = temperatuuriderida.substr(tempspace + 4, tempspace);
+            tempThree = temperatuurideRida.substr(tempSpace + 4, tempSpace);
             cout << "Kolmas temperatuur >>> " << tempThree << endl;
             int tempThreeInt = std::stoi (tempThree);
-            tempThreeInt >> temps[i];
+            temps[2] = tempThreeInt;
 
             //neljas temp
-            tempFour = temperatuuriderida.substr(tempspace + 7, tempspace);
+            tempFour = temperatuurideRida.substr(tempSpace + 7, tempSpace);
             cout << "Neljas temperatuur >>> " << tempFour << endl;
             int tempFourInt = std::stoi (tempFour);
-            tempFourInt >> temps[i];
+            temps[3] = tempFourInt;
 
             //viies temp
-            tempFive = temperatuuriderida.substr(tempspace + 10, newline);
+            tempFive = temperatuurideRida.substr(tempSpace + 10, newLine);
             cout << "Viies temperatuur >>> " << tempFive << endl;
             int tempFiveInt = std::stoi (tempFive);
-            tempFiveInt >> temps[i];
+            temps[4] = tempFiveInt;
+
 
             size_t n = sizeof(temps)/sizeof(temps[0]);
 
-            for (int i = n - 1; i >= 0; i--) {
-                cout << "Temperatuuride massiiv: " << endl;
-                cout << temps[i];
+            //prindin massiivi välja
+            cout << "Temperatuuride massiiv: " << endl;
+            for (int i = 0; i <= n; i++) {
+                cout << temps[i] << endl;
             }
 
             //leian maksimumi
-            for (i = 1; i < n; i++) {
+            for (i = 0; i <= n; i++) {
                 if(temps[0] < temps[i]) {
-                    temps[0] = temps[i];
+                    maxTemp = temps[i];
                 }
             }
 
-            cout << "Max on >>>> " << temps[0];
+            //leian miinimumi
+            for (i = 0; i <= n; i++) {
+                if(temps[0] > temps[i]) {
+                    minTemp = temps[i];
+                }
+            }
 
+            cout << "Max on >>>> " << maxTemp << endl;
+            cout << "Min on >>>> " << minTemp << endl;
             cout << "-------------------------------" << endl;
 
-
-
         }
-            
 
     }
-
-    
     
 }
