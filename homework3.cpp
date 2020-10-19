@@ -1,9 +1,11 @@
 #include <iostream>
 #include <fstream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main() {    
+
+int main() {
     const constexpr char* temperatuuridefile = "/Users/user/Desktop/temperatuurid2.txt";
     ifstream file(temperatuuridefile);
 
@@ -13,11 +15,9 @@ int main() {
     string tempSpace;
     int temps[4];
     int tempOneInt, tempTwoInt, tempThreeInt, tempFourInt, tempFiveInt;
-    int n;
     int maxTemp, minTemp;
     string linn;
     string newLine;
-
 
     while (file.peek() != EOF) {
         getline(file, line);
@@ -36,31 +36,31 @@ int main() {
             //esimene temp
             size_t tempSpace = temperatuurideRida.find(";");
             tempOne = temperatuurideRida.substr(0, tempSpace);
-            cout << "Esimene temperatuur >>> " << tempOne << endl;
+            //cout << "Esimene temperatuur >>> " << tempOne << endl;
             int tempOneInt = std::stoi (tempOne);
             temps[0] = tempOneInt;
 
             //teine temp
             tempTwo = temperatuurideRida.substr(tempSpace + 1, tempSpace);
-            cout << "Teine temperatuur >>> " << tempTwo << endl;
+            //cout << "Teine temperatuur >>> " << tempTwo << endl;
             int tempTwoInt = std::stoi (tempTwo);
             temps[1] = tempTwoInt;
 
             //kolmas temp
             tempThree = temperatuurideRida.substr(tempSpace + 4, tempSpace);
-            cout << "Kolmas temperatuur >>> " << tempThree << endl;
+            //cout << "Kolmas temperatuur >>> " << tempThree << endl;
             int tempThreeInt = std::stoi (tempThree);
             temps[2] = tempThreeInt;
 
             //neljas temp
             tempFour = temperatuurideRida.substr(tempSpace + 7, tempSpace);
-            cout << "Neljas temperatuur >>> " << tempFour << endl;
+            //cout << "Neljas temperatuur >>> " << tempFour << endl;
             int tempFourInt = std::stoi (tempFour);
             temps[3] = tempFourInt;
 
             //viies temp
             tempFive = temperatuurideRida.substr(tempSpace + 10, newLine);
-            cout << "Viies temperatuur >>> " << tempFive << endl;
+            //cout << "Viies temperatuur >>> " << tempFive << endl;
             int tempFiveInt = std::stoi (tempFive);
             temps[4] = tempFiveInt;
 
@@ -73,26 +73,28 @@ int main() {
                 cout << temps[i] << endl;
             }
 
+            //arvutan keskmise välja
+            double keskmineTemp = 0.0;
+            int summa = tempOneInt + tempTwoInt + tempThreeInt + tempFourInt + tempFiveInt;
+            keskmineTemp = summa / 5.0;
+            cout << "Selle linna temperatuuride keskmine on " << keskmineTemp << " kraadi." << endl;
+
             //leian maksimumi
-            for (i = 0; i <= n; i++) {
-                if(temps[0] < temps[i]) {
-                    maxTemp = temps[i];
-                }
-            }
+            maxTemp = *max_element(temps, temps + n);
+            cout << "Maksimaalne temperatuur on " << maxTemp << " kraadi." << endl;
 
             //leian miinimumi
-            for (i = 0; i <= n; i++) {
-                if(temps[0] > temps[i]) {
-                    minTemp = temps[i];
-                }
-            }
+            minTemp = *min_element(temps, temps + n);
+            cout << "Minimaalne temperatuur on " << minTemp << " kraadi." << endl;
 
-            cout << "Max on >>>> " << maxTemp << endl;
-            cout << "Min on >>>> " << minTemp << endl;
+            //keskmine ilma ekstreemumiteta
+            int summaIlmaEkstreemumiteta = summa - maxTemp - minTemp;
+            double keskmineIlmaEkstreemumiteta = 0.0;
+            keskmineIlmaEkstreemumiteta = summaIlmaEkstreemumiteta / 3;
+            cout << "Selle linna keskmine temperatuuride ilma ekstreemumiteta on " << keskmineIlmaEkstreemumiteta << " kraadi." << endl;         
+
             cout << "-------------------------------" << endl;
-
+            return 0;
         }
-
-    }
-    
+    } 
 }
