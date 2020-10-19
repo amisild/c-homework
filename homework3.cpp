@@ -22,7 +22,7 @@ int main() {
     while (file.peek() != EOF) {
         getline(file, line);
         for (int i = 0; i < 1; i) {
-            cout << line << '\n';
+            //cout << line << '\n'; //prindib välja rea, mille saab txt failist
 
             size_t space = line.find(";");
             size_t newLine = line.find('\n');
@@ -31,7 +31,7 @@ int main() {
             cout << "Linna nimi >>> " << linn << endl;
 
             temperatuurideRida = line.substr(space + 1, newLine);
-            cout << "Full line of temperatures >>> " << temperatuurideRida << endl;
+            //cout << "Full line of temperatures >>> " << temperatuurideRida << endl; //prindib välja temperatuuride rea
            
             //esimene temp
             size_t tempSpace = temperatuurideRida.find(";");
@@ -64,21 +64,14 @@ int main() {
             int tempFiveInt = std::stoi (tempFive);
             temps[4] = tempFiveInt;
 
-
-            size_t n = sizeof(temps)/sizeof(temps[0]);
-
-            //prindin massiivi välja
-            cout << "Temperatuuride massiiv: " << endl;
-            for (int i = 0; i <= n; i++) {
-                cout << temps[i] << endl;
-            }
-
             //arvutan keskmise välja
             double keskmineTemp = 0.0;
             int summa = tempOneInt + tempTwoInt + tempThreeInt + tempFourInt + tempFiveInt;
             keskmineTemp = summa / 5.0;
-            cout << "Selle linna temperatuuride keskmine on " << keskmineTemp << " kraadi." << endl;
+            cout << "Selle linna keskmine temperatuur on " << keskmineTemp << " kraadi." << endl;
 
+            size_t n = sizeof(temps)/sizeof(temps[0]);
+            
             //leian maksimumi
             maxTemp = *max_element(temps, temps + n);
             cout << "Maksimaalne temperatuur on " << maxTemp << " kraadi." << endl;
