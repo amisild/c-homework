@@ -21,7 +21,7 @@ int main() {
 
     while (file.peek() != EOF) {
         getline(file, line);
-        for (int i = 0; i < 1; i) {
+        for (int i = 0; i < 1; i++) {
             //cout << line << '\n'; //prindib välja rea, mille saab txt failist
 
             size_t space = line.find(";");
