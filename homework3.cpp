@@ -87,7 +87,6 @@ int main() {
             cout << "Selle linna keskmine temperatuuride ilma ekstreemumiteta on " << keskmineIlmaEkstreemumiteta << " kraadi." << endl;         
 
             cout << "-------------------------------" << endl;
-            return 0;
         }
     } 
 }
