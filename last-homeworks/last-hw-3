@@ -46,7 +46,7 @@ int main() {
     vector<Punkt> array = {p1, p2, p3};
     Punkt uusPunkt = array[1] + array[2];
     cout << "Uus punkt on " << uusPunkt << endl;
-    cout << "Suurim punkt on " << suurimaElement(suurim) << endl;
+    cout << "Suurim punkt on " << suurimElement(array) << endl;
     cout << "Soovitud punkti järjekorranumber on " << jrknr(array, p1) << endl;
 
     return 0;
