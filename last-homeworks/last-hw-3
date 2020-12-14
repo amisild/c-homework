@@ -16,7 +16,7 @@ class Punkt{
 
 Punkt suurimElement(vector<Punkt> array){
     
-    Punkt suurim = massiiv[0];
+    Punkt suurim = array[0];
 
     for (int i = 0; i < 2; i++){
         if (array[i] < array[i + 1]){
