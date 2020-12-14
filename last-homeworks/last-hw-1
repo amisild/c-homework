@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector> //std::vector
-#include <stack> //std::stack
 
 using namespace std;
 
@@ -16,15 +15,19 @@ class Punkt {
     {}
 
     Punkt() {
-        cout << "Sisesta x: ";
+        cout << "Sisesta x: " << endl;
         cin >> x;
-        cout << "Sisesta y: ";
+        cout << "Sisesta y: " << endl;
         cin >> y;
         cout << "Valisid x-ks " << x << " ja y-ks " << y << endl;
     }
 
-    return x;
-    return y;
+    double saabX(){
+        return x;
+    }
+    double saabY(){
+        return y;
+    }
 
     float lenght() {
         return x.distanceFrom(y);
@@ -32,8 +35,20 @@ class Punkt {
 
 };
 
+class ruumiPunkt: public Punkt{
+    protected:
+    double z;
+
+    ruumiPunkt(): Punkt(){
+        cout << "Sisesta z: " << endl;
+        cin >> z;
+    }
+};
+
 int main() {
 
-    Punkt();
+    Punkt p1;
+    p1.saabX();
+    p1.saabY();
 
 }
