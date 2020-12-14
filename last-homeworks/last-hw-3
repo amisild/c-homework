@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+template <class T>
+T liida(T x, T y) {
+    return x+y;
+}
+
+
+class Punkt{
+    double x;
+    double y;
+}
+
+Punkt suurimaLeidmine(vector<Punkt> array){
+    
+    Punkt suurim = massiiv[0];
+
+    for (int i = 0; i < 2; i++){
+        if (array[i] < array[i + 1]){
+            suurim = array[i + 1];
+        } else {
+            suurim = array[i];
+        }
+    }
+
+    return suurim;
+}
+
+int main() {
+    Punkt p1(1, 2);
+    Punkt p2(15, 21);
+    Punkt p3 liida<Punkt>(p1, p2);
+
+    //punktimassiiv
+    vector<Punkt> array = {p1, p2, p3};
+    Punkt uusPunkt = array[1] + array[2];
+    cout << "Uus punkt on " << uusPunkt << endl;
+
+    cout << "Suurim punkt on " << suurimaLeidmine(suurim) << endl;
+
+}
