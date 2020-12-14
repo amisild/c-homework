@@ -14,7 +14,7 @@ class Punkt{
     double y;
 }
 
-Punkt suurimaLeidmine(vector<Punkt> array){
+Punkt suurimElement(vector<Punkt> array){
     
     Punkt suurim = massiiv[0];
 
@@ -29,6 +29,14 @@ Punkt suurimaLeidmine(vector<Punkt> array){
     return suurim;
 }
 
+int jrknr(vector<Punkt> a, Punkt nr){
+    for(int i = 0; i < a.size(); i++){
+        if(v[i] == nr){
+            return i;
+        }
+    }
+}
+
 int main() {
     Punkt p1(1, 2);
     Punkt p2(15, 21);
@@ -39,6 +47,9 @@ int main() {
     Punkt uusPunkt = array[1] + array[2];
     cout << "Uus punkt on " << uusPunkt << endl;
 
-    cout << "Suurim punkt on " << suurimaLeidmine(suurim) << endl;
+    cout << "Suurim punkt on " << suurimaElement(suurim) << endl;
 
+    cout << "Soovitud punkti järjekorranumber on " << jrknr(array, p1) << endl;
+
+    return 0;
 }
