@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector> //std::vector
 
 using namespace std;
 
@@ -35,6 +36,15 @@ class toiduportsjon: public toidukomponent{
     public:
         toiduportsjon(){
         }
+
+        double koguMass(){
+        double sum;
+        for(int i = 0; i < toidukomponent.size(); i++){
+            sum += toidukomponent[i].askKogus();
+        }
+
+        return sum;
+    }
 };
 
 int main() {
@@ -46,6 +56,8 @@ int main() {
 
     toiduportsjon p1("kurk", 0.9, 1.3, 0.3);
     cout << p1.rp << endl;
+
+    cout << "Kogumass: " << t1.kogumass() << endl;
 
     return 0;
 }
