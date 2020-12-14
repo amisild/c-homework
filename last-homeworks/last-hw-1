@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector> //std::vector
+#include <stack> //std::stack
+
+using namespace std;
+
+class Punkt {
+    protected:
+    double x;
+    double y;
+
+    Punkt () = default;
+    Punkt (P nx, P ny)
+        : x(nx)
+        , y(ny)
+    {}
+
+    Punkt() {
+        cout << "Sisesta x: ";
+        cin >> x;
+        cout << "Sisesta y: ";
+        cin >> y;
+        cout << "Valisid x-ks " << x << " ja y-ks " << y << endl;
+    }
+
+    return x;
+    return y;
+
+    float lenght() {
+        return x.distanceFrom(y);
+    }
+
+};
+
+int main() {
+
+    Punkt();
+
+}
