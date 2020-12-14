@@ -12,7 +12,7 @@ T liida(T x, T y) {
 class Punkt{
     double x;
     double y;
-}
+};
 
 Punkt suurimElement(vector<Punkt> array){
     
