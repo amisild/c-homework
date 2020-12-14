@@ -8,11 +8,6 @@ class Punkt {
     double x;
     double y;
 
-    Punkt () = default;
-    Punkt (P nx, P ny)
-        : x(nx)
-        , y(ny)
-    {}
 
     public:
     Punkt() {
@@ -29,8 +24,15 @@ class Punkt {
     double saabY(){
         return y;
     }
+    
+    double liidetud;
+    double punktideLiitmine(Punkt p){
+        liidetud.x = x + p.saabX();
+        liidetud.y = y + p.saabY();
+        return liidetud;        
+    }
 
-    float lenght() {
+    double lenght() {
         return x.distanceFrom(y);
     }
 
@@ -40,16 +42,35 @@ class ruumiPunkt: public Punkt{
     protected:
     double z;
 
+    public:
     ruumiPunkt(): Punkt(){
         cout << "Sisesta z: " << endl;
         cin >> z;
+    }
+
+    double saabZ(){
+        return z;
     }
 };
 
 int main() {
 
     Punkt p1;
+    Punkt p2;
     p1.saabX();
     p1.saabY();
 
+    double liidetud = p1.punktideLiitmine(p2);
+
+    cout << "Kahe punkti kaugus on " << p1.lenght() << endl;
+
+    ruumiPunkt r1;
+    r1.saabZ();
+
+    Punkt array[] = {p1, p2, r1};
+    for(int i = 0; i < 2; i++){
+        cout << array[i] << endl;
+    }
+
+    return 0;
 }
