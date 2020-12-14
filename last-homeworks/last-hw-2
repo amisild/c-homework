@@ -1,0 +1,51 @@
+#include <iostream>
+
+using namespace std;
+
+class toiduaine{
+    public:
+        string nimetus;
+        double vp; //valguprotsent
+        double rp; //rasvaprotsent
+        double sp; //süsivesikuprotsent
+    
+        Toiduaine(string n, double v, double r, double s){
+            nimetus = n;
+            vp = v;
+            rp = r;
+            sp = s;
+        }
+};
+
+class toidukomponent: public toiduaine{
+    public:
+        double kogus;
+    
+        toidukomponent(string n, double v, double r, double s): toiduaine (double k){
+            kogus = k;
+        }
+
+    askKogus(){
+        return kogus;
+    }
+
+};
+
+class toiduportsjon: public toidukomponent{
+    public:
+        toiduportsjon(){
+        }
+};
+
+int main() {
+    toiduaine t1("kurk", 0.9, 1.3, 0.3);
+    cout << t1.nimetus << endl;
+
+    toidukomponent k1("kurk", 0.9, 1.3, 0.3);
+    cout << k1.vp << endl;
+
+    toiduportsjon p1("kurk", 0.9, 1.3, 0.3);
+    cout << p1.rp << endl;
+
+    return 0;
+}
