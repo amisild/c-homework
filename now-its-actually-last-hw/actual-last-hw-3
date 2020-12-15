@@ -1,0 +1,33 @@
+/*Kolmas ülesanne:
+Massiivis ‘nimed’ on tudengite nimi, täpsemalt koosneb massiiv viitadest nimedele.
+Topeltviida ‘nimed’ väärtuseks saab viit esimese nimeaadressile.
+Programm küsib nime esitähte ning liikudes topeltviidaga mööda stringimassiivi väljastab leitud nimi.*/
+
+#include <iostream>
+#include <stdio.h>
+#include <conio.h>
+
+using namespace std;
+
+int main(){
+    int n;
+    int i;
+
+    char *nimed[6] ={"Anete", "Karl", "Krista", "Gunnar", "Maria", "Lauri"};
+    char **nimi = nimed;
+
+    char esitaht; //viit märgile
+
+    cout << "Millise esitähega nime soovid: " << endl;
+    cin >> esitaht;
+
+    n = sizeof(nimed)/sizeof(char*);
+
+    for (i = 0; i < n; i++){
+        if (esitaht == *nimi[i]) {
+            cout << "Leidsin nime >> ";
+            cout << nimi[i] << endl;
+        }
+    }
+    return 0;
+}
