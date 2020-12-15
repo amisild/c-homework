@@ -1,0 +1,61 @@
+/*Ülesanne 2:
+Kirjtage programm, mis näitab failidega tööd.
+Failinimi ’Info.txt’ on programmi tekstis kirjas konstandina. Lisaks on ette nähtud võimalus anda failinimi ette käsureal, siis proovitakse avada etteantud nimega fail. Faili mitteleidmisel antakse veateade ja programm lõpetab töö veakoodiga 1.
+Salvestage faili 25 juhuslikult gerenreeritud arvu.
+Loege need arvud ja kuvage konsooli.*/
+
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>  //srand, rand
+#include <time.h>    //time
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int choosing_numbers(int numbers[]) {
+    for (int i = 0; i < 25; i++) {
+        numbers[i] = (rand()%80 + 1);
+    }
+    return 0;
+}
+
+int saving_to_file(int numbers[], int n) {
+    srand(time(0));
+    ofstream myfile;
+    myfile.open ("Info.txt");
+
+    int value;
+    for (int i = 0; i < 25; i++) {
+        value = rand();
+        myfile << value << "\n";
+    }
+
+    myfile.close();
+    return 0;
+}
+
+int main (void)
+{
+    string userInput;
+    cout << "Millise faili numbreid kuvada soovid: " << endl;
+    cin >> userInput;
+
+    if (userInput == "Info.txt") {
+        const int n = 25;
+        int numbers[25];
+
+        choosing_numbers(numbers);
+        saving_to_file(numbers, n);
+
+        //printing out the numbers
+        std::ifstream f("Info.txt");
+        if (f.is_open())
+        std::cout << f.rdbuf();
+
+    } else {
+        cout << "Sellist faili pole." << endl;
+        return 0;
+    }
+
+    return 0;    
+}
