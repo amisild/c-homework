@@ -1,0 +1,55 @@
+/*Programm küsib sugu, nime ja vanust ning väljastab nende andmete põhjal isiku vanuse iga järgneva 5 aasta kohta kuni pensioni vanuse saamiseni. 
+Oletame, et naised lähevad pensionile vanuses 60, mehed - 65.*/
+
+#include<iostream>
+
+using namespace std;
+
+int main() {
+    string sugu, nimi;
+    int vanus;
+
+    cout << "Sisesta oma sugu (mees/naine): " << endl;
+    cin >> sugu;
+
+    cout << "Sisesta oma nimi ja vanus: " << endl;
+    cin >> nimi >> vanus;
+
+    if (sugu == "naine") {
+        cout << "Sa saad pensionile jääda 60-aastaselt." << endl;
+        do {
+            if (vanus >= 60) {
+                cout << "Oled juba pensioni-eas." << endl;
+            } else {
+                vanus += 5;
+                if (vanus < 60) {
+                    cout << "Su vanus 5 aasta pärast on " << vanus << " aastat." << endl;
+                } else {
+                    cout << "Jõudsid pensionini!" << endl;
+                    break;
+                }
+            }
+        } while (vanus < 60);
+
+    } else if (sugu == "mees") {
+        cout << "Sa saad pensionile jääda 65-aastaselt." << endl;
+        do {
+            if (vanus >= 65) {
+                cout << "Oled juba pensioni-eas." << endl;
+            } else {
+                vanus += 5;
+                if (vanus < 65) {
+                    cout << "Su vanus 5 aasta pärast on " << vanus << " aastat." << endl;
+                } else {
+                    cout << "Jõudsid pensionini!" << endl;
+                    break;
+                }
+            }
+        } while (vanus < 65);
+
+    } else {
+        cout << "Error! Sellist sugu pole :(" << endl;
+    }
+
+    return 0;
+}
