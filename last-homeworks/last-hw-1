@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector> //std::vector
+#include <cmath>
 
 using namespace std;
 
