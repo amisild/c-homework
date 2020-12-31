@@ -53,6 +53,11 @@ class ruumiPunkt: public Punkt{
     }
 };
 
+double vektoriPikkus(Punkt p){
+    double vektoriPikkus = sqrt(p.x * p.x + p.y * p.y);
+    return vektoriPikkus;
+} 
+
 int main() {
 
     Punkt p1;
